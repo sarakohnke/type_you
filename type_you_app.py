@@ -361,7 +361,6 @@ if st.button("See how your chosen interventions are predicted to affect this pat
 
 
 
-st.write('Github repo for the type_you app: https://github.com/sarakohnke/type_you')
 
 
 
