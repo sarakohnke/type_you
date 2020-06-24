@@ -16,7 +16,7 @@ a1c9=Image.open('a1c9.png')
 a1c10=Image.open('a1c10.png')
 a1c11=Image.open('a1c11.png')
 
-patient_info=pd.read_csv('patient_info220620.csv',index_col=0)
+patient_info=pd.read_csv('patient_info240620.csv',index_col=0)
 
 patient1_list=patient_info.iloc[0,:].values.tolist()
 patient2_list=patient_info.iloc[1,:].values.tolist()
@@ -100,19 +100,15 @@ if patient=='Patient 3':
 
 st.sidebar.markdown('Choose possible interventions')
 insulin=st.sidebar.selectbox("Add insulin",("No","Yes"))
-aginhibitor=st.sidebar.selectbox("Add alpha-glucosidase inhibitor",("No","Yes"))
 biguanide=st.sidebar.selectbox("Add biguanide",("No","Yes"))
 dpp4inhibitor=st.sidebar.selectbox("Add DPP-4 inhibitor",("No","Yes"))
-dpp4biguanide=st.sidebar.selectbox("Add DPP-4 inhibitor;biguanide combo",("No","Yes"))
 glp1ragonist=st.sidebar.selectbox("Add GLP-1R agonist",("No","Yes"))
 sglt2inhibitor=st.sidebar.selectbox("Add SGLT2 inhibitor",("No","Yes"))
-sglt2biguanide=st.sidebar.selectbox("Add SGLT2 inhibitor;biguanide combo",("No","Yes"))
-sulfonylurea=st.sidebar.selectbox("Add sufonylurea",("No","Yes"))
+sulfonylurea=st.sidebar.selectbox("Add sulfonylurea",("No","Yes"))
 thiazolidinedione=st.sidebar.selectbox("Add thiazolidinedione",("No","Yes"))
 bmi=st.sidebar.selectbox("Bring BMI to healthy range (24 kg/m2)",("No","Yes"))
 diet=st.sidebar.selectbox("Change diet to 'excellent'",("No","Yes"))
 total=st.sidebar.selectbox("Bring total cholesterol to desirable range (60 mg/dl)",("No","Yes"))
-bp=st.sidebar.selectbox("Bring blood pressure to desirable range (120/80 mmHg)",("No","Yes"))
 sleep=st.sidebar.selectbox("Sleep 8hr per night",("No","Yes"))
 
 if st.button("See how your chosen interventions are predicted to affect this patient's A1C"):
@@ -120,10 +116,6 @@ if st.button("See how your chosen interventions are predicted to affect this pat
 		patient1_list[6]=1
 	else:
 		patient1_list[6]=patient1_list[6]
-	if patient=='Patient 1' and  aginhibitor=='Yes':
-		patient1_list[7]=1
-	else:
-		patient1_list[7]=patient1_list[7]
 	if patient=='Patient 1' and  biguanide=='Yes':
 		patient1_list[8]=1
 	else:
@@ -132,10 +124,6 @@ if st.button("See how your chosen interventions are predicted to affect this pat
 		patient1_list[9]=1
 	else:
 		patient1_list[9]=patient1_list[9]
-	if patient=='Patient 1' and  dpp4biguanide=='Yes':
-		patient1_list[10]=1
-	else:
-		patient1_list[10]=patient1_list[10]
 	if patient=='Patient 1' and  glp1ragonist=='Yes':
 		patient1_list[11]=1
 	else:
@@ -144,10 +132,6 @@ if st.button("See how your chosen interventions are predicted to affect this pat
 		patient1_list[13]=1
 	else:
 		patient1_list[13]=patient1_list[13]
-	if patient=='Patient 1' and  sglt2biguanide=='Yes':
-		patient1_list[14]=1
-	else:
-		patient1_list[14]=patient1_list[14]
 	if patient=='Patient 1' and  sulfonylurea=='Yes':
 		patient1_list[15]=1
 	else:
@@ -164,12 +148,6 @@ if st.button("See how your chosen interventions are predicted to affect this pat
 		patient1_list[19]=150
 	else:
 		patient1_list[19]=patient1_list[19]
-	if patient=='Patient 1' and  bp=='Yes':
-		patient1_list[3]=120
-		patient1_list[4]=80
-	else:
-		patient1_list[3]=patient1_list[3]
-		patient1_list[4]=patient1_list[4]
 	if patient=='Patient 1' and diet=='Yes':
 		patient1_list[43]=1
 	else:
@@ -203,10 +181,6 @@ if st.button("See how your chosen interventions are predicted to affect this pat
 		patient2_list[6]=1
 	else:
 		patient2_list[6]=patient2_list[6]
-	if patient=='Patient 2' and  aginhibitor=='Yes':
-		patient2_list[7]=1
-	else:
-		patient2_list[7]=patient2_list[7]
 	if patient=='Patient 2' and  biguanide=='Yes':
 		patient2_list[8]=1
 	else:
@@ -215,10 +189,6 @@ if st.button("See how your chosen interventions are predicted to affect this pat
 		patient2_list[9]=1
 	else:
 		patient2_list[9]=patient2_list[9]
-	if patient=='Patient 2' and  dpp4biguanide=='Yes':
-		patient2_list[10]=1
-	else:
-		patient2_list[10]=patient2_list[10]
 	if patient=='Patient 2' and  glp1ragonist=='Yes':
 		patient2_list[11]=1
 	else:
@@ -227,10 +197,6 @@ if st.button("See how your chosen interventions are predicted to affect this pat
 		patient2_list[13]=1
 	else:
 		patient2_list[13]=patient2_list[13]
-	if patient=='Patient 2' and  sglt2biguanide=='Yes':
-		patient2_list[14]=1
-	else:
-		patient2_list[14]=patient2_list[14]
 	if patient=='Patient 2' and  sulfonylurea=='Yes':
 		patient2_list[15]=1
 	else:
@@ -247,12 +213,6 @@ if st.button("See how your chosen interventions are predicted to affect this pat
 		patient2_list[19]=150
 	else:
 		patient2_list[19]=patient2_list[19]
-	if patient=='Patient 2' and  bp=='Yes':
-		patient2_list[3]=120
-		patient2_list[4]=80
-	else:
-		patient2_list[3]=patient2_list[3]
-		patient2_list[4]=patient2_list[4]
 	if patient=='Patient 2' and diet=='Yes':
 		patient2_list[43]=1
 	else:
@@ -287,10 +247,6 @@ if st.button("See how your chosen interventions are predicted to affect this pat
 		patient3_list[6]=1
 	else:
 		patient3_list[6]=patient3_list[6]
-	if patient=='Patient 3' and  aginhibitor=='Yes':
-		patient3_list[7]=1
-	else:
-		patient3_list[7]=patient3_list[7]
 	if patient=='Patient 3' and  biguanide=='Yes':
 		patient3_list[8]=1
 	else:
@@ -299,10 +255,6 @@ if st.button("See how your chosen interventions are predicted to affect this pat
 		patient3_list[9]=1
 	else:
 		patient3_list[9]=patient3_list[9]
-	if patient=='Patient 3' and  dpp4biguanide=='Yes':
-		patient3_list[10]=1
-	else:
-		patient3_list[10]=patient3_list[10]
 	if patient=='Patient 3' and  glp1ragonist=='Yes':
 		patient3_list[11]=1
 	else:
@@ -311,10 +263,6 @@ if st.button("See how your chosen interventions are predicted to affect this pat
 		patient3_list[13]=1
 	else:
 		patient3_list[13]=patient3_list[13]
-	if patient=='Patient 3' and  sglt2biguanide=='Yes':
-		patient3_list[14]=1
-	else:
-		patient3_list[14]=patient3_list[14]
 	if patient=='Patient 3' and  sulfonylurea=='Yes':
 		patient3_list[15]=1
 	else:
@@ -331,12 +279,6 @@ if st.button("See how your chosen interventions are predicted to affect this pat
 		patient3_list[19]=150
 	else:
 		patient3_list[19]=patient3_list[19]
-	if patient=='Patient 3' and  bp=='Yes':
-		patient3_list[3]=120
-		patient3_list[4]=80
-	else:
-		patient3_list[3]=patient3_list[3]
-		patient3_list[4]=patient3_list[4]
 	if patient=='Patient 3' and diet=='Yes':
 		patient3_list[43]=1
 	else:
