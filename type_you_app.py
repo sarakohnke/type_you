@@ -25,7 +25,7 @@ def decompress_pickle(file):
 	model=bz2.BZ2File(file,'rb')
 	model=cPickle.load(model)
 	return model
-model=decompress_pickle('model.pbz2')
+model=decompress_pickle('model.bz2')
 #with open('model_pkl.pickle','rb') as input_file:
 #    model=pickle.load(input_file)
 
