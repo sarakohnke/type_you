@@ -3,10 +3,8 @@ import pandas as pd
 import numpy as np
 from PIL import Image
 import pickle
-import bz2
-import _pickle as cPickle
-
-
+#import bz2
+#import _pickle as cPickle
 
 
 titleimage=Image.open('typeyoulogo.png')
@@ -24,13 +22,13 @@ patient1_list=patient_info.iloc[0,:].values.tolist()
 patient2_list=patient_info.iloc[1,:].values.tolist()
 patient3_list=patient_info.iloc[2,:].values.tolist()
 
-def decompress_pickle(file):
-	model=bz2.BZ2File(file,'rb')
-	model=cPickle.load(model)
-	return model
-model=decompress_pickle('model2.pbz2')
-#with open('model_download.pkl','rb') as input_file:
-#    model=pickle.load(input_file)
+#def decompress_pickle(file):
+#	model=bz2.BZ2File(file,'rb')
+#	model=cPickle.load(model)
+#	return model
+#model=decompress_pickle('model2.pbz2')
+with open('model_pkl.pickle','rb') as input_file:
+    model=pickle.load(input_file)
 
 st.image(image=titleimage)
 patient=st.selectbox('Select patient EMR data',('Patient 1','Patient 2','Patient 3'))
