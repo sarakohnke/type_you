@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from PIL import Image
-import pickle
+#import pickle
 #import bz2
 #import _pickle as cPickle
 
@@ -17,6 +17,9 @@ a1c10=Image.open('a1c10.png')
 a1c11=Image.open('a1c11.png')
 
 patient_info=pd.read_csv('patient_info240620.csv',index_col=0)
+X_train_rf2=pd.read_csv('X_train.csv',index_col=0)
+y_train_rf2=pd.read_csv('y_train.csv',index_col=0)
+model=DecisionTreeRegressor(max_depth=10,min_samples_leaf=4,min_samples_split=10,random_state = 0).fit(X_train_rf2, y_train_rf2)
 
 patient1_list=patient_info.iloc[0,:].values.tolist()
 patient2_list=patient_info.iloc[1,:].values.tolist()
@@ -27,8 +30,8 @@ patient3_list=patient_info.iloc[2,:].values.tolist()
 #	model=cPickle.load(model)
 #	return model
 #model=decompress_pickle('model2.pbz2')
-with open('model_pkl.pickle','rb') as input_file:
-    model=pickle.load(input_file)
+#with open('model_pkl.pickle','rb') as input_file:
+#    model=pickle.load(input_file)
 
 st.image(image=titleimage)
 patient=st.selectbox('Select patient EMR data',('Patient 1','Patient 2','Patient 3'))
