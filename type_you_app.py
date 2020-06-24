@@ -28,9 +28,9 @@ def decompress_pickle(file):
 	model=bz2.BZ2File(file,'rb')
 	model=cPickle.load(model)
 	return model
-#model=decompress_pickle('model.bz2')
-with open('model_download.pkl','rb') as input_file:
-    model=pickle.load(input_file)
+model=decompress_pickle('model2.pbz2')
+#with open('model_download.pkl','rb') as input_file:
+#    model=pickle.load(input_file)
 
 st.image(image=titleimage)
 patient=st.selectbox('Select patient EMR data',('Patient 1','Patient 2','Patient 3'))
